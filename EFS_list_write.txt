@@ -1,0 +1,33 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "elasticfilesystem:ModifyMountTargetSecurityGroups",
+                "elasticfilesystem:DeleteAccessPoint",
+                "elasticfilesystem:DescribeReplicationConfigurations",
+                "elasticfilesystem:Restore",
+                "elasticfilesystem:PutAccountPreferences",
+                "elasticfilesystem:CreateFileSystem",
+                "elasticfilesystem:DeleteReplicationConfiguration",
+                "elasticfilesystem:DescribeAccessPoints",
+                "elasticfilesystem:DescribeAccountPreferences",
+                "elasticfilesystem:ClientWrite",
+                "elasticfilesystem:CreateReplicationConfiguration",
+                "elasticfilesystem:CreateMountTarget",
+                "elasticfilesystem:PutLifecycleConfiguration",
+                "elasticfilesystem:Backup",
+                "elasticfilesystem:PutBackupPolicy",
+                "elasticfilesystem:ClientRootAccess",
+                "elasticfilesystem:DescribeFileSystems",
+                "elasticfilesystem:DeleteMountTarget",
+                "elasticfilesystem:CreateAccessPoint",
+                "elasticfilesystem:DeleteFileSystem",
+                "elasticfilesystem:UpdateFileSystem"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
