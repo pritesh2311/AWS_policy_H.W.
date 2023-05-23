@@ -1,0 +1,37 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:PutDashboard",
+                "cloudwatch:PutMetricData",
+                "cloudwatch:DeleteAlarms",
+                "cloudwatch:DeleteInsightRules",
+                "cloudwatch:ListMetrics",
+                "cloudwatch:DeleteAnomalyDetector",
+                "cloudwatch:StartMetricStreams",
+                "cloudwatch:DeleteDashboards",
+                "cloudwatch:StopMetricStreams",
+                "cloudwatch:DisableAlarmActions",
+                "cloudwatch:ListDashboards",
+                "cloudwatch:ListTagsForResource",
+                "cloudwatch:DeleteMetricStream",
+                "cloudwatch:SetAlarmState",
+                "cloudwatch:PutAnomalyDetector",
+                "cloudwatch:PutManagedInsightRules",
+                "cloudwatch:DisableInsightRules",
+                "cloudwatch:EnableInsightRules",
+                "cloudwatch:Link",
+                "cloudwatch:PutCompositeAlarm",
+                "cloudwatch:PutMetricStream",
+                "cloudwatch:PutInsightRule",
+                "cloudwatch:PutMetricAlarm",
+                "cloudwatch:EnableAlarmActions",
+                "cloudwatch:ListMetricStreams"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
