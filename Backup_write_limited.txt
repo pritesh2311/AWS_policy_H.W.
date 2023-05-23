@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "backup-storage:CommitBackupJob",
+                "backup-storage:ListChunks",
+                "backup-storage:GetChunk",
+                "backup-storage:ListObjects",
+                "backup-storage:NotifyObjectComplete",
+                "backup-storage:DescribeBackupJob",
+                "backup-storage:PutChunk",
+                "backup-storage:GetObjectMetadata",
+                "backup-storage:GetIncrementalBaseBackup",
+                "backup-storage:MountCapsule",
+                "backup-storage:GetBaseBackup"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
