@@ -1,0 +1,8 @@
+Step 1: Create Instance > Instance Name > select AMI > Create new .pem key pair > Allow SSH > Launch Instance.
+Step 2: Open Ubuntu 18.04.6 configure by entering user name and Password
+Step 3: go to Instance Pair Key Location
+        cd /mnt/c/Users/(User of desktop you login)/Pair key folder.
+Step 4: Change .pem Key Permission using
+        sudo chmod 600 keyname.pem
+Step 5: took SSH go to Instance and click on Connect from SSH Client copy and pate
+        sudo ssh -i "Newssh007.pem" ubuntu@ec2-65-0-80-27.ap-south-1.compute.amazonaws.com
