@@ -1,0 +1,18 @@
+Task : Create 2 EC2 Instance and delete the .pem pair key of one of the instance and recover the same.
+Steps
+1 : Create 2 EC2 Instance first one as sever007 and second one as backup_server007
+2 : Delete the key of the server007 EC2 Instance from the location where we downloaded in the system.
+3 : Stop the server007 EC2 Instance and go to the Volume of the Instance and Detach it.
+4 : Attach the Volume of the server007 EC2 Instance to the backup_server007 EC2 Instance and remember device name of the volume(disk).
+5 : Took SSH of the backup_server007 EC2 Instance using the public IP.
+6 : login as root using sudo su -
+7 : lsblk
+8 : mkdir -p /var/recovery-disk
+9 : mount -o nouuid /dev/xvdf4 /var/recovery-disk/
+10 : df -h
+11 : cat /home/ec2-user/.ssh/authorized_keys >> /var/recovery-disk/home/ec2-user/.ssh/authorized_keys
+12 : umount /var/recovery-disk
+13 : Then go to the AWS Console EC2 Volumes and Detach the Volume which we attached to the backup_server007.
+14 : Then again Attach the Volume back to the server007 EC2 Instance which in Stopped state also make sure to mention Device name as /dav/sda1
+15 : Then Start the server007 EC2 Instance and took the SSH using public IP where need to user the private key of the backup_server007 and click ok it will login.
+By using this method data will not lost.
