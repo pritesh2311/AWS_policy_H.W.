@@ -1,0 +1,8 @@
+Task: Create S3 bucket and cross region replication
+Steps:	1) Go to S3 > Click Create bucket > bucket name : my-bucket-for-mumbai-office > AWS region : Asia Pacific (Mumbai) > (select) ACL enabled > (uncheck) Block all public access > (check) i acknowledge… > Bucket versioning (Enable) > (click) Create bucket.
+	2) Click Create bucket > bucket name : my-bucket-for-sydney-office-mumbai-replica > AWS region : Asia Pacific (Sydney) > (select) ACL enabled > (uncheck) Block all public access > (check) i acknowledge… > Bucket versioning (Enable) > (click) Create bucket. 
+	3) Select my-bucket-for-mumbai-office (data want to replicate) > Management > Create replication rule > rule name: Mumbai-office > source bucket: apply to all objects in the bucket > In destination Choose a bucket in this account > browse s3 : my-bucket-for-sydney-office-mumbai-replica > Choose path.
+	4) IAM role : Create new role > Save > select Yes, replicate existing objects > Submit > Path to completion report destination : my-bucket-for-mumbai-office > Save
+	5) Go to my-bucket-for-mumbai-office > Object > upload file > Permissions (ACL) : grant public-read access > I Understand... > Upload.
+	6) Select Object > Click on Actions > Make public using ACL
+	7) Now, Check my-bucket-for-sydney-office-mumbai-replica the object is replicated successfully.
