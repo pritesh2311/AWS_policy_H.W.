@@ -1,0 +1,31 @@
+Task: Auto Scaling based on CPU Utilization with EC2 Auto Scaling
+	* Set up EC2 Auto Scaling to automatically adjust the number of instances based on CPU utilization metrics.
+	* Configure CloudWatch Alarms to trigger scaling actions in real-time when CPU thresholds are exceeded.
+	* Monitor auto scaling events and instances in real-time to ensure optimal resource utilization and application performance
+Steps:	1) Go to EC2 > Auto Scaling.
+	2) Click on Auto Scaling Groups > Create Auto Scaling Group.'
+	3) Name Auto Scaling Group (enter the name to identify the group) : asg-group1
+	4) Click on Switch to Launch Configuration > create a lunch configuration.
+	5) Lunch Configuration Name : LC
+	6) Copy the AMI id and paste it in select AMI of the Launch configuration.
+	7) Then select the Instance type : t2.micro
+	8) Go to Security group > create a new security group Name : AutoScaling-Security-Group-1 and add new rule SSH and HTTP.
+	9) Select Key pair existing or create new.
+	10) Select Create Launch Configuration.
+	11) Then go to the Auto Scaling Group page and select a launch configuration : LC > Next.
+	12) Then in network select VPC : Default > Availability Zones and subnets : Select All > Next > Next.
+	13) In Group size select Desired Capacity:3, Min. Cap.:2, Max. Cap.:5 > Next > Next > Next.
+	14) Create Auto Scaling group.
+	15) Select Auto Scaling group and go to Automatic Scaling and Click on Create dynamic scaling policy.
+	16) Policy type : Simple Scaling > Scaling policy Name : Decrease-grp > Take the action : Remove > 1 > 300 > Update.
+	17) Same procerss for Increase-grp > Take the action : add > 2 > 300 > Update.
+	18) Configure CloudWatch > Alarms > Create alarm > Select metric > browse metrics > EC2 > By Auto Scaling Group > select : asg-group1 : CPUUtilization > Select metric > Threshold type : Static > Condition : Lower/Equal <=threshold > threshold value : 20 > Next >
+		Notification > In alarm > Create new topic > Name : Default_CloudWatch_Alarms_Topic > Email ID > Create topic > Auto Scaling Action > Add > In alarm > EC2 Auto Scaling group : asg-group1 > Take Action : Decrease-grp > Alarm name : ASD-Decrease > Next > Create alarm.
+	19) Same process for Increase Alarm > CloudWatch > Alarm > Create alarm > Select metric > browse metrics > EC2 > By Auto Scaling Group > select : asg-group1 : CPUUtilization > Select metric > Threshold type : Static > Condition : Greater/Equal >=threshold > threshold value : 70 > Next >
+		Notification > In alarm > Create new topic > Name : Default_CloudWatch_Alarms_Topic > Email ID > Create topic > Auto Scaling Action > Add > In alarm > EC2 Auto Scaling group : asg-group1 > Take Action : Increase-grp > Alarm name : ASD-Increase > Next > Create alarm.
+	20) Took SSH of Instance
+	21) sudo yum install stress -y
+	22) sudo stress --help
+	23) copy example line and paste and edit > stress --cpu 80 --io 4 --vm 2 --vm-bytes 128M --timeout 10m &
+	24) Type uptime to check cpu utilization when it hits above 80
+	25) Goto instance and you will see as the cpu utilization increases the Instance will be added as per Auto Scaling group Configuration.
