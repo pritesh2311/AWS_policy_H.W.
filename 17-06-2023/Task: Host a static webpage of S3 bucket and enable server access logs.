@@ -1,0 +1,7 @@
+Task: Host a static webpage of S3 bucket and enable server access logs.
+Steps:	1) Go to S3 > Click Create bucket > bucket name : static12 > AWS region : Asia Pacific (Mumbai) > (select) ACL enabled > (uncheck) Block all public access > (check) i acknowledge… > Bucket versioning (Enable) > (click) Create bucket.
+	2) Go to browser > download css free sample template in ZIP > Extract the same on the desktop in a Newfolder.
+	3) Go to bucket : static12 > Upload > Add files > Select all > (click) open > (clcik) Add folder (add one by one) > (click) upload > Permission (ACL) > Grant public-read access > (check) I understand... > Upload
+	4) Go to bucket : static12 > Properties > static website hosting > (click) edit > (click) Enable > index document : index.html > (click) save changes
+	5) Go below in static website hosting > bucket website endpoint : copy url
+	6) Go to browser and paste url > website is hosted succefully.
