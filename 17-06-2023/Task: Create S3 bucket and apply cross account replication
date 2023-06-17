@@ -1,0 +1,10 @@
+Task: Create S3 bucket and apply cross account replication
+Steps:	1) Create bucket in two different A/c in different region
+	2) Go to S3 > Click Create bucket > bucket name : mybucket-pritesh123 > AWS region : Asia Pacific (Sydney) > (select) ACL enabled > (uncheck) Block all public access > (check) i acknowledge… > Bucket versioning (Enable) > (click) Create bucket.
+	3) (select) mybucket-pritesh123 (1st A/c) > Management > Create replication rule > rule name: replicationrule0123 > source bucket: apply to all objects in the bucket > In destination Specify a bucket in another account > Account ID (2nd A/c) > Bucket name : mybucket-charan123 > Check Change object ownership to destination bucket owner.
+	4) IAM role : Create new role > Save > select Yes, replicate existing objects > Submit > Path to completion report destination : mybucket-pritesh123 > Save
+	5) Upload object in mybucket-pritesh123 (1st A/c) > grand full access > Upload
+	6) Go to 2nd A/c
+	7) Go to S3 on mybucket-charan123 > Permission > (click) edit ACL > (check) list and write in everyone (public access) > (check) i acknowledge.. > Save changes.
+	8) back to 1st A/c > go to mybucket-pritesh123 > (click) management > goto below to replication section > (click) destination bucket > (click) on object > copy object url > paste in browser.
+	here, we successfully replicated s3 bucket using cross A/c.
