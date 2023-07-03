@@ -10,7 +10,7 @@ Steps	:
 	9) EC-2 launch instance, branchoffice >>ami kernel 2, public ip enable,tag=Name,Bo-ec2, sg = SSH + ICMP 0.0.0.0/0, key pair branchofficekp, launch instance.
 	10) select Branch office ec2 >> click on action >> networking change source/destination check >> stop
 	11) create virutal private gateway >> VPG-MainBranch >> create >> attach VPC to VPC-MainOffice
-	12) create customer gateway >> CGW-MainBranch >> static >> Copy BO public ip >> IP Address = public ip >> create
+	12) create customer gateway >> CGW-MainBranch >> static >> Copy BranchOffice Instance public ip >> IP Address = public ip >> create
 	13) go to site-to-site VPN >> Create VPN Connection >> VPN-MainBranch >> VPG = VPG-MainBranch >> CGW = CGW-MainBranch >> Routing option = static >> 172.25.0.0/16 and 10.10.0.0/16 >> create VPN
 	14) SSH Branch office ec2 using mobaxterm >> $sudo su >> #yum install openswan -y
 	15) #sudo vim /etc/ipsec.conf
@@ -20,7 +20,7 @@ Steps	:
 	  	net.ipv4.ip_forword = 1
 		net.ipv4.conf.default.rp.filter = 0
 		net.ipv4.conf.default.accept_source_route = 0
-	17) Apply the changes in step 17 by executing the command 'sysctl -p'
+	17) Apply the changes in step 16 by executing the command 'sysctl -p'
 	18) Download VPN Configuration vendor=Openswan
 	19) #sudo vim /etc/ipsec.d/aws.conf
 		paste vpn configuration
