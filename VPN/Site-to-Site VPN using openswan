@@ -1,5 +1,5 @@
 Steps	:
-  1) Create VPC in Mumbai VPC-MainOffice 10.10.0.0/16 and another in Singapore VPC-BranchOffice 172.25.0.0/16
+  	1) Create VPC in Mumbai VPC-MainOffice 10.10.0.0/16 and another in Singapore VPC-BranchOffice 172.25.0.0/16
 	2) subnet selcet MainOffiec, Subnet-MainOffice, az-1, 10.10.1.0/24, tag key=Name, value=Subnet-MainOffice-Public
 	3) subnet select BranchOffice, Subnet-BranchOffice, az-1, 172.25.1.0/24, tag key=Name, value=Subnet-BranchOffice-Public
 	4) Create Internet Gateway, Name=igw-mob, Attach to VPC-Mainoffice
@@ -14,12 +14,12 @@ Steps	:
 	13) go to site-to-site VPN >> Create VPN Connection >> VPN-MainBranch >> VPG = VPG-MainBranch >> CGW = CGW-MainBranch >> Routing option = static >> 172.25.0.0/16 and 10.10.0.0/16 >> create VPN
 	14) SSH Branch office ec2 using mobaxterm >> $sudo su >> #yum install openswan -y
 	15) #sudo vim /etc/ipsec.conf
-      we have to remove # from below line
-		  include /etc/ipsec.d/*.conf
+     		we have to remove # from below line
+		include /etc/ipsec.d/*.conf
 	16) #sudo vim /etc/sysctl.conf
 	  	net.ipv4.ip_forword = 1
-		  net.ipv4.conf.default.rp.filter = 0
-		  net.ipv4.conf.default.accept_source_route = 0
+		net.ipv4.conf.default.rp.filter = 0
+		net.ipv4.conf.default.accept_source_route = 0
 	17) Apply the changes in step 17 by executing the command 'sysctl -p'
 	18) Download VPN Configuration vendor=Openswan
 	19) #sudo vim /etc/ipsec.d/aws.conf
@@ -50,9 +50,9 @@ Steps	:
 	22) #service network restart
 	23) #chkconfig ipsec on
 	24) #systemctl restart ipsec
-  25) #systemctl status ipsec
+  	25) #systemctl status ipsec
 	26) go to Route table of VPC-MainOffice >> route propagation >> check propagate >> save
-  27) check VPN connection status is available and Tunnel is up.
+  	27) check VPN connection status is available and Tunnel is up.
 	28) SSH MainOffice >> 
 		$ping BranchOffice Private IPv4
 		$exit
