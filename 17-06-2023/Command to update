@@ -1,0 +1,6 @@
+Command to update only security patch on amazon linux machine ?
+You can run the following command to upgrade all installed packages on Amazon Linux cloud server:
+$sudo yum update
+
+To apply only security related updates to the machines, run:
+$sudo yum --security update1
